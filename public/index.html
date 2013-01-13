@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>flash note</title>
+    <script type="text/javascript">
+        function prompt() {
+            var image = document.createElement('img');
+            image.setAttribute('src', 'img/c.png');
+            document.getElementById('ui').appendChild(image);
+
+            var text = document.createElement('p');
+            text.innerText = 'Type the note you see above';
+            document.getElementById('ui').appendChild(text);
+        }
+
+        function keyEvent(event) {
+            if (String.fromCharCode(event.keyCode) == 'C') {
+                success();
+            } else {
+                fail();
+            }
+
+        }
+
+        function success() {
+            var ui = document.getElementById('ui');
+            while (ui.hasChildNodes()) {
+                ui.removeChild(ui.lastChild);
+            }
+
+            var text = document.createElement('p');
+            text.innerText = '\\o/ YES \\o/';
+            document.getElementById('ui').appendChild(text);
+        }
+
+        function fail() {
+            var ui = document.getElementById('ui');
+            while (ui.hasChildNodes()) {
+                ui.removeChild(ui.lastChild);
+            }
+
+            var text = document.createElement('p');
+            text.innerText = 'NO';
+            document.getElementById('ui').appendChild(text);
+        }
+    </script>
+</head>
+<body onload='prompt();' onkeydown="keyEvent(event);">
+<h1 align="center">flash note</h1>
+
+<div id='ui' style='text-align: center;'></div>
+</body>
+</html>
