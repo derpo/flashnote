@@ -1,0 +1,1 @@
+To open website, open Github and open a shell of the program, then type "bundle exec rackup" without quotes.
