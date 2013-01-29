@@ -4,9 +4,13 @@
 <head>
     <title>flash note</title>
     <script type="text/javascript">
+
+        var note;
+
         function prompt() {
+            pickRandomNote();
             var image = document.createElement('img');
-            image.setAttribute('src', 'img/c.png');
+            image.setAttribute('src', 'img/' + note + '.png');
             document.getElementById('ui').appendChild(image);
 
             var text = document.createElement('p');
@@ -14,8 +18,17 @@
             document.getElementById('ui').appendChild(text);
         }
 
+        function pickRandomNote()
+        {
+            var notes = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+             note = notes[Math.floor(Math.random() * notes.length)];
+
+        }
+
+
+
         function keyEvent(event) {
-            if (String.fromCharCode(event.keyCode) == 'C') {
+            if (String.fromCharCode(event.keyCode) == note) {
                 success();
             } else {
                 fail();
